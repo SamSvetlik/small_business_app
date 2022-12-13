@@ -3,7 +3,7 @@ import { AppBar, Toolbar,
   Typography
 } from '@mui/material'
 import { green } from '@mui/material/colors';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import cookie from "cookie";
 
 
@@ -11,10 +11,15 @@ const checkAuth = () => {
     const cookies = cookie.parse(document.cookie)
     return cookies["loggedIn"] ? true : false
 }
+const logOut = () => {
+    document.cookie = cookie.serialize("loggedIn", null, {
+        maxAge: 0,
+    });
+}
 
 const primary = green
 const Navigation = () => {
-    const navigate = useNavigate();
+
     return (
         <AppBar position="relative" color='primary'>
             <Toolbar>
@@ -32,20 +37,14 @@ const Navigation = () => {
                         <Link to="/add">Add</Link>
                     </li> */}
                     {checkAuth() ? 
-                        (<li
-                            className="nav-list-item"
-                            onClick={() => {
-                            document.cookie = cookie.serialize("loggedIn", null, {
-                                maxAge: 0,
-                            });
-                            navigate("/login");
-                            }}
-                        >
-                            Logout
+                        (<li className="nav-list-item">
+                            <Link to="/login" onClick={() => {logOut()}}>Logout</Link>
+                            {/* Should probably add function to clear user from state */}
                         </li>) 
-                        : (<li className="nav-list-item">
-                                    <Link to="/login">Login</Link>
-                                </li>)} 
+                        : 
+                        (<li className="nav-list-item">
+                                <Link to="/login">Login</Link>
+                        </li>)} 
                 </ul>
             </Toolbar>
         </AppBar>
