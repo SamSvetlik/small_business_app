@@ -1,6 +1,14 @@
 import { combineReducers } from 'redux'
 
-const user = (state = null) => state
+const user = (state = {}, action) => {
+    switch(action.type) {
+        case "SET_USER":
+            return {...state, ...action.value}
+            
 
+        default:
+            return state;
+    }
+}
 
 export default combineReducers({ user })

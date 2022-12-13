@@ -4,9 +4,9 @@ import Navigation from './components/Navigation'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import Home from './components/Home'
+import Home from './containers/Home'
 import Listings from './components/Listings'
-import Login from './components/Login'
+import Login from './containers/Login'
 
 function App() {
   return (
