@@ -14,21 +14,18 @@ const Navigation = () => {
                     Lubbock Small Business
                 </Typography>
                 <ul className="nav-list">
-                    <li>Listings</li>
-                    <li>Add</li>
-                    <li>Login</li>
-                    {/* <li className="nav-list-item">
+                    <li className="nav-list-item">
                         <Link to="/">Home</Link>
                     </li>
                     <li className="nav-list-item">
-                        <Link to="/about">About</Link>
+                        <Link to="/listings">Listings</Link>
                     </li>
-                    <li className="nav-list-item">
-                        <Link to="/dashboard">Dasboard</Link>
-                    </li>
-                    <li className="nav-list-item">
-                        <Link to="/import">Import</Link>
+                    {/* <li className="nav-list-item">
+                        <Link to="/add">Add</Link>
                     </li> */}
+                    <li className="nav-list-item">
+                        <Link to="/login">Login</Link>
+                    </li>
                 </ul>
             </Toolbar>
         </AppBar>
