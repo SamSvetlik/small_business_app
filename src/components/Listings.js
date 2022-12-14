@@ -6,6 +6,7 @@ const Listings = (props) => {
             <h1>
             This is where the listings will go.
             </h1>
+            {console.log(props.businesses)}
         </div>
     )
 }

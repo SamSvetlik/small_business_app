@@ -10,5 +10,15 @@ const user = (state = {}, action) => {
             return state;
     }
 }
+const businesses = (state = [], action) => {
+    switch(action.type) {
+        case "ADD_BUSINESS":
+            return [...state, ...action.value]
+            
 
-export default combineReducers({ user })
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({ user, businesses })
