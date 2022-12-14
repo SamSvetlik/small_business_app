@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -20,13 +21,15 @@ const Listings = (props) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.businesses.map((business)=> {
+                    {props.businesses.map((business, index)=> {
                         return (
                             <TableRow>
                                 <TableCell>{business.name}</TableCell>
                                 <TableCell>{business.address}</TableCell>
                                 <TableCell>{business.hours.reduce((prev, cur) => [ ...prev, cur, <br /> ], [])}</TableCell>
-                                <TableCell>Click for more</TableCell>
+                                <TableCell>
+                                <Link to={`/business/${index}`}>See More Details</Link>
+                                </TableCell>
                             </TableRow>
                         )
                     })}

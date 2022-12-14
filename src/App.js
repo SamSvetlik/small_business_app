@@ -7,6 +7,7 @@ import store from './redux/store'
 import Home from './containers/Home'
 import Listings from './containers/Listings'
 import Login from './containers/Login'
+import Business from './containers/Business';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='listings' element={<Listings />} />
           <Route path='login' element={<Login />} />
+          <Route path="/business/:id" element={<Business />} />
         </Routes>
       </BrowserRouter>
     </Provider>
