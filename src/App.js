@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './redux/store'
 import Home from './containers/Home'
-import Listings from './containers/Listings'
+import Businesses from './containers/Businesses'
 import Login from './containers/Login'
 import Business from './containers/Business';
 
@@ -16,7 +16,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='listings' element={<Listings />} />
+          <Route path='business' element={<Businesses />} />
           <Route path='login' element={<Login />} />
           <Route path="/business/:id" element={<Business />} />
         </Routes>

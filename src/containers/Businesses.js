@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Listings from '../components/Listings'
+import Businesses from '../components/Businesses'
 import {setUser} from '../redux/actions'
 
 const mapStateToProps = (state) => {
@@ -8,4 +8,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Listings)
+export default connect(mapStateToProps)(Businesses)
