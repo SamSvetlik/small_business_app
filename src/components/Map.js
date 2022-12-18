@@ -1,21 +1,20 @@
 import React from "react";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
 
 const Map = (props) => {
     
-    const ref = React.useRef(null);
-// const [map, setMap] = React.useState();
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyArhMi7ylqz6vrLMcks06vPUYqGYkQjfNE"
+  });
 
-React.useEffect(() => {
-  if (ref.current && !props.map) {
-    props.setMap(new window.google.maps.Map(ref.current, {zoom: 12, center: {
-        lat: 33.576698,
-        lng: -101.855072
-    }}));
-  }
-}, [ref, props.map]);
-    
-    return <div style={{height: "500px", width: "500px"}} ref={ref} />
+  if (!isLoaded) return <p>Loading...</p>;
+
+  return (
+    <GoogleMap zoom={14} center={props.business.position} mapContainerClassName="map">
+      <MarkerF position={props.business.position} />
+    </GoogleMap>
+  )
 
 }
 
