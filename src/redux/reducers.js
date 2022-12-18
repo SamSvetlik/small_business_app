@@ -3,6 +3,9 @@ import { combineReducers } from 'redux'
 const user = (state = {}, action) => {
     switch(action.type) {
         case "SET_USER":
+            if (!action.value){
+                return {}
+            }
             return {...state, ...action.value}
             
 

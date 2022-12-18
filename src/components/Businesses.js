@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 
 const Businesses = (props) => {
     return (
-        <TableContainer component={Paper} elevation={8} >
+        <TableContainer style={{width: "95%", margin: "auto"}} component={Paper} elevation={8} >
             <Table>
                 <TableHead>
                     <TableRow>

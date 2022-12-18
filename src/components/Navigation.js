@@ -18,7 +18,7 @@ const logOut = () => {
 }
 
 const primary = green
-const Navigation = () => {
+const Navigation = (props) => {
 
     return (
         <AppBar position="relative" color='primary'>
@@ -38,8 +38,10 @@ const Navigation = () => {
                     </li> */}
                     {checkAuth() ? 
                         (<li className="nav-list-item">
-                            <Link to="/login" onClick={() => {logOut()}}>Logout</Link>
-                            {/* Should probably add function to clear user from state */}
+                            <Link to="/login" onClick={() => {
+                                logOut()
+                                props.setUser(null)
+                                console.log("Reset user to blank")}}>Logout</Link>
                         </li>) 
                         : 
                         (<li className="nav-list-item">
