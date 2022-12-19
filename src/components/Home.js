@@ -9,7 +9,6 @@ const checkAuth = () => {
 const Home = (props) => {
     return (
         <div >
-            {console.log(props.user)}
             {checkAuth() ? (<h2> Logged in!  Welcome, {props.user.username}!</h2>) : (<h2>Not logged in!</h2>)}
         </div>
     )

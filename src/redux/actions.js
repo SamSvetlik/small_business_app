@@ -4,3 +4,10 @@ export const setUser = (user) => {
         value: user
     }
 }
+
+export const removeIndex = (index) => {
+    return {
+        type: "REMOVE_INDEX",
+        value: index
+    }
+}

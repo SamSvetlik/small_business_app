@@ -24,8 +24,6 @@ const Login = (props) => {
 
   const login = (e) => {
     e.preventDefault();
-    console.log(state)
-    console.log(props)
     props.setUser({...state})
     document.cookie = cookie.serialize("loggedIn", true, { maxAge: 300 })
 

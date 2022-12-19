@@ -2,7 +2,6 @@ import React from 'react'
 import { AppBar, Toolbar, 
   Typography
 } from '@mui/material'
-import { green } from '@mui/material/colors';
 import { Link } from 'react-router-dom'
 import cookie from "cookie";
 
@@ -17,7 +16,6 @@ const logOut = () => {
     });
 }
 
-const primary = green
 const Navigation = (props) => {
 
     return (
@@ -41,7 +39,7 @@ const Navigation = (props) => {
                             <Link to="/login" onClick={() => {
                                 logOut()
                                 props.setUser(null)
-                                console.log("Reset user to blank")}}>Logout</Link>
+                                }}>Logout</Link>
                         </li>) 
                         : 
                         (<li className="nav-list-item">
