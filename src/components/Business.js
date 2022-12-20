@@ -8,6 +8,7 @@ import Map from './Map';
 const Business = (props) => {
   const id = useParams().id;
   const business = props.businesses[id];
+  console.log(business)
 
   return (
     <Container maxWidth="sm" className="business-container">

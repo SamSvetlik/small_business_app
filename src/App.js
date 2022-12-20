@@ -8,6 +8,8 @@ import Home from './containers/Home'
 import Businesses from './containers/Businesses'
 import Login from './containers/Login'
 import Business from './containers/Business';
+import ProtectedRoute from './components/ProtectedRoute';
+import AddBusiness from './containers/AddBusiness'
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route path='business' element={<Businesses />} />
           <Route path='login' element={<Login />} />
           <Route path="/business/:id" element={<Business />} />
+          <Route path="/add" element={<ProtectedRoute component={AddBusiness} />} />
         </Routes>
       </BrowserRouter>
     </Provider>

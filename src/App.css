@@ -18,3 +18,11 @@
   height: 500px;
   width: 500px;
 }
+
+.addDiv {
+  display: block;
+}
+
+.addInput {
+  width: 100%;
+}

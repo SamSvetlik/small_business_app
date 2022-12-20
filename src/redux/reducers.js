@@ -16,7 +16,7 @@ const user = (state = {}, action) => {
 const businesses = (state = [], action) => {
     switch(action.type) {
         case "ADD_BUSINESS":
-            return [...state, ...action.value]
+            return [...state, action.value]
             
         case "REMOVE_INDEX":
             let newState = [...state]

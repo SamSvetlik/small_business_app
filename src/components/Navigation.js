@@ -31,9 +31,9 @@ const Navigation = (props) => {
                     <li className="nav-list-item">
                         <Link to="/business">Businesses</Link>
                     </li>
-                    {/* <li className="nav-list-item">
+                    <li className="nav-list-item">
                         <Link to="/add">Add</Link>
-                    </li> */}
+                    </li>
                     {checkAuth() ? 
                         (<li className="nav-list-item">
                             <Link to="/login" onClick={() => {
