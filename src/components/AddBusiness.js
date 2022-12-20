@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import { Container, Paper, TextField, Button, Chip } from '@mui/material'
 
 
@@ -15,6 +16,8 @@ const AddBusiness = (props) => {
     })
 
     const [tempHours, setTempHours] = useState("")
+
+    const navigate = useNavigate()
 
     const handleTextChange = (e) => {
         const newState = { ...newBiz }
@@ -44,6 +47,9 @@ const AddBusiness = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (newBiz.hours.length === 0){
+            alert("Looks like your business has no hours listed.  Be sure and click 'add hours' after you type the schedule!")
+        } else
         fetch(`https://geocode.maps.co/search?q=${newBiz.address}`)
             .then((response)=> response.json())
             .then((data)=> {
@@ -51,14 +57,11 @@ const AddBusiness = (props) => {
                     lat: parseFloat(data[0].lat),
                     lng: parseFloat(data[0].lon)
                 }
-                const newState = {...newBiz}
-                newState.position = pos
-                console.log(newState)
-                setNewBiz(newState)
-                console.log(newBiz)
+                setNewBiz((prev)=> {prev.position = pos})
                 const payload = { ...newBiz }
                 console.log("NEW BUSINESS: ", payload)
                 props.addBusiness(payload)
+                navigate("/business")
             })
             .catch((err)=> console.log(err))
     }

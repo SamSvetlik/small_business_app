@@ -16,7 +16,6 @@ const Business = (props) => {
         <h1>{business.name}</h1>
         <h3>{business.description}</h3>
         <Map business={business}></Map>
-        <h3>If I could figure out the Google Maps API, you would see a marker on {business.position.lat}, {business.position.lng}</h3>
       </Paper>
     </Container>
   );
