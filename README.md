@@ -1,3 +1,12 @@
+# An app to showcase my favorite small businesses in Lubbock!
+
+Users can navigate to the Businesses page and see a list of my favorite locally owned businesses, including their address and hours.  If a user clicks "See More Details", it will give them a summary of the business and show them the location on Google Maps.  Users can add to or delete businesses from this list if they log in.  The login form will accept any user/password combination.  App state is managed using Redux, and will reset when the user restarts the app.
+
+# This app requires a Google Maps API key!
+In the Map.js componenet, insert your own API key on line 8.
+The app will function without an API key, however the map showing a business' location will render white space or an "Oops" error from Google.
+
+Boilerplate CreateReactApp readme follows:
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
