@@ -1,6 +1,17 @@
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import reducers from './reducers'
+import { configureStore } from '@reduxjs/toolkit'
+import { businessReducer } from './reducers'
 import state from './state'
 
-export default createStore(reducers, state, applyMiddleware(thunk))
+import userReducer from './userSlice'
+// import businessReducer from './businessSlice'
+
+
+const store = configureStore({
+    reducer: {
+        user: userReducer,
+        businesses: businessReducer
+    },
+    preloadedState: state
+})
+
+export default store

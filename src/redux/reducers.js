@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux'
 
-const user = (state = {}, action) => {
+export const userReducer = (state = {}, action) => {
     switch(action.type) {
         case "SET_USER":
             if (!action.value){
@@ -13,7 +12,7 @@ const user = (state = {}, action) => {
             return state;
     }
 }
-const businesses = (state = [], action) => {
+export const businessReducer = (state = [], action) => {
     switch(action.type) {
         case "ADD_BUSINESS":
             return [...state, action.value]
@@ -28,4 +27,3 @@ const businesses = (state = [], action) => {
     }
 }
 
-export default combineReducers({ user, businesses })

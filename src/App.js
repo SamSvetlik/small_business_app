@@ -4,9 +4,9 @@ import Navigation from './containers/Navigation'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import Home from './containers/Home'
+import Home from './components/Home'
 import Businesses from './containers/Businesses'
-import Login from './containers/Login'
+import Login from './components/Login'
 import Business from './containers/Business';
 import ProtectedRoute from './components/ProtectedRoute';
 import AddBusiness from './containers/AddBusiness'

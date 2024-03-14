@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container } from "@mui/material";
 import cookie from "cookie"
+import { useDispatch } from "react-redux";
+import { userSet } from "../redux/userSlice";
 
 const Login = (props) => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+  
 
   const [state, setState] = useState({
     username: "",
@@ -24,7 +28,7 @@ const Login = (props) => {
 
   const login = (e) => {
     e.preventDefault();
-    props.setUser({...state})
+    dispatch (userSet({...state}))
     document.cookie = cookie.serialize("loggedIn", true, { maxAge: 300 })
 
     navigate("/");
