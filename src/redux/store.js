@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import state from './state'
+import preloadedState from './state'
 import businessReducer from './businessSlice'
 import userReducer from './userSlice'
 
@@ -9,7 +9,7 @@ const store = configureStore({
         user: userReducer,
         businesses: businessReducer
     },
-    preloadedState: state
+    preloadedState
 })
 
 export default store

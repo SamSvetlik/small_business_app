@@ -30,12 +30,13 @@ const Businesses = (props) => {
                         <TableCell>Hours</TableCell>
                         <TableCell>More Info</TableCell>
                         <TableCell>Remove Business</TableCell>
+                        <TableCell>Edit Business</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {businesses.map((business, index)=> {
                         return (
-                            <TableRow>
+                            <TableRow key={index}>
                                 <TableCell>{business.name}</TableCell>
                                 <TableCell>{business.address}</TableCell>
                                 <TableCell>{business.hours.reduce((prev, cur) => [ ...prev, cur, <br /> ], [])}</TableCell>
@@ -46,6 +47,11 @@ const Businesses = (props) => {
                                     {checkAuth() === true
                                     ? <DeleteIcon onClick={() => {dispatch(businessRemovedByIndex(index))}} />
                                     : "Please login to delete"}
+                                </TableCell>
+                                <TableCell>
+                                    {checkAuth() === true
+                                    ? <Link to={`/edit/${index}`}>Edit details</Link>
+                                    : "Please login to edit"}
                                 </TableCell>
                             </TableRow>
                         )

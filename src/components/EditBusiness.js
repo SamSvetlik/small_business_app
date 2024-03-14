@@ -2,21 +2,22 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Container, Paper, TextField, Button, Chip } from '@mui/material'
-import { businessAdded } from "../redux/businessSlice";
+import { editBusiness } from "../redux/businessSlice";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 
-const AddBusiness = (props) => {
+const EditBusiness = (props) => {
+    const id = useParams().id;
     const dispach = useDispatch()
+    const business = useSelector(state => state.businesses[id])
 
     const [newBiz, setNewBiz] = useState({
-        name: "",
-        description: "",
-        address: "",
-        hours: [],
-        url: "",
-        position: {}
+        ...business
     })
+
+    console.log(newBiz)
 
     const [tempHours, setTempHours] = useState("")
 
@@ -44,7 +45,7 @@ const AddBusiness = (props) => {
 
     const deleteHour = (index) => {
         const newState = {...newBiz}
-        newState.hours.splice(index, 1)
+        newState.hours = newState.hours.filter((hour, i) => i !== index);
         setNewBiz(newState)
     }
 
@@ -61,9 +62,11 @@ const AddBusiness = (props) => {
                     lng: parseFloat(data[0].lon)
                 }
                 setNewBiz((prev)=> {prev.position = pos})
-                const payload = { ...newBiz }
-                console.log("NEW BUSINESS: ", payload)
-                dispach(businessAdded(payload))
+                const payload = {
+                    id: id,
+                    newValues: {...newBiz }
+                }
+                dispach(editBusiness(payload))
                 navigate("/business")
             })
             .catch((err)=> console.log(err))
@@ -72,7 +75,7 @@ const AddBusiness = (props) => {
     return (
         <Container className="addContainer">
             <Paper>
-            <h1>Add your own business to the list!</h1>
+            <h1>Edit a business' details!</h1>
             <form onSubmit={handleSubmit} >
             <TextField 
                 id="name" 
@@ -105,7 +108,7 @@ const AddBusiness = (props) => {
             <Button onClick={handleHours}>Add hours</Button>
             {newBiz.hours.map((entry, index)=> {
                 // May need to add Stack element here 
-                return <Chip key={index} label={entry} onDelete={()=> {deleteHour(index)}}></Chip>
+                return <Chip label={entry} onDelete={()=> {deleteHour(index)}}></Chip>
             })}
             <TextField 
                 id="url" 
@@ -114,7 +117,7 @@ const AddBusiness = (props) => {
                 value={newBiz.url} 
                 onChange={handleTextChange} 
                 required />
-            <Button variant="contained" type="submit">Add new business!</Button>
+            <Button variant="contained" type="submit">Edit business!</Button>
             </form>
             </Paper>
         </Container>
@@ -122,4 +125,4 @@ const AddBusiness = (props) => {
 
 }
 
-export default AddBusiness
+export default EditBusiness

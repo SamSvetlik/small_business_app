@@ -10,6 +10,7 @@ import Login from './components/Login'
 import Business from './components/Business';
 import ProtectedRoute from './components/ProtectedRoute';
 import AddBusiness from './components/AddBusiness'
+import EditBusiness from './components/EditBusiness';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path="/business/:id" element={<Business />} />
           <Route path="/add" element={<ProtectedRoute component={AddBusiness} />} />
+          <Route path='/edit/:id' element={<ProtectedRoute component={EditBusiness} />} />
         </Routes>
       </BrowserRouter>
     </Provider>

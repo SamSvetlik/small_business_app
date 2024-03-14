@@ -62,11 +62,17 @@ const businessSlice = createSlice({
         },
         businessRemovedByIndex(state, action) {
             state.splice(action.payload, 1)
+        },
+        editBusiness (state, action) {
+            const { id, newValues } = action.payload
+            console.log(id)
+            console.log(newValues)
+            state.splice(id, 1, newValues)
         }
     },
 
 })
 
-export const {businessAdded, businessRemovedByIndex} = businessSlice.actions
+export const {businessAdded, businessRemovedByIndex, editBusiness} = businessSlice.actions
 
 export default businessSlice.reducer
