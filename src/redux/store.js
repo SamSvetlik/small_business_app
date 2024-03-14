@@ -1,9 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { businessReducer } from './reducers'
 import state from './state'
-
+import businessReducer from './businessSlice'
 import userReducer from './userSlice'
-// import businessReducer from './businessSlice'
 
 
 const store = configureStore({

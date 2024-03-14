@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Container, Paper } from "@mui/material";
 import Map from './Map';
 // import Marker from "./Marker";
@@ -7,7 +8,7 @@ import Map from './Map';
 
 const Business = (props) => {
   const id = useParams().id;
-  const business = props.businesses[id];
+  const business = useSelector(state => state.businesses)[id];
   console.log(business)
 
   return (

@@ -55,10 +55,10 @@ const initialState = [
 
 const businessSlice = createSlice({
     name: 'businesses',
-    initialState,
+    initialState: initialState,
     reducers: {
         businessAdded(state, action) {
-            state.businesses.push(action.payload)
+            state.push(action.payload)
         },
         businessRemovedByIndex(state, action) {
             state.splice(action.payload, 1)

@@ -1,10 +1,13 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Container, Paper, TextField, Button, Chip } from '@mui/material'
+import { businessAdded } from "../redux/businessSlice";
 
 
 
 const AddBusiness = (props) => {
+    const dispach = useDispatch()
 
     const [newBiz, setNewBiz] = useState({
         name: "",
@@ -60,7 +63,7 @@ const AddBusiness = (props) => {
                 setNewBiz((prev)=> {prev.position = pos})
                 const payload = { ...newBiz }
                 console.log("NEW BUSINESS: ", payload)
-                props.addBusiness(payload)
+                dispach(businessAdded(payload))
                 navigate("/business")
             })
             .catch((err)=> console.log(err))

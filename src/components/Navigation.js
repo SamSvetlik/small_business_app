@@ -1,8 +1,8 @@
 import React from 'react'
-import { AppBar, Toolbar, 
-  Typography
-} from '@mui/material'
+import { AppBar, Toolbar, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { userSet } from '../redux/userSlice';
 import cookie from "cookie";
 
 
@@ -17,6 +17,9 @@ const logOut = () => {
 }
 
 const Navigation = (props) => {
+
+    const dispach = useDispatch()
+    const user = useSelector(state => state.user)
 
     return (
         <AppBar position="relative" color='primary'>
@@ -38,7 +41,7 @@ const Navigation = (props) => {
                         (<li className="nav-list-item">
                             <Link to="/login" onClick={() => {
                                 logOut()
-                                props.setUser(null)
+                                dispach(userSet(null))
                                 }}>Logout</Link>
                         </li>) 
                         : 

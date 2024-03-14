@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { businessRemovedByIndex } from '../redux/businessSlice';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -16,6 +18,8 @@ const checkAuth = () => {
 }
 
 const Businesses = (props) => {
+    const dispatch = useDispatch()
+    const businesses = useSelector(state => state.businesses)
     return (
         <TableContainer style={{width: "95%", margin: "auto"}} component={Paper} elevation={8} >
             <Table>
@@ -29,7 +33,7 @@ const Businesses = (props) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.businesses.map((business, index)=> {
+                    {businesses.map((business, index)=> {
                         return (
                             <TableRow>
                                 <TableCell>{business.name}</TableCell>
@@ -40,7 +44,7 @@ const Businesses = (props) => {
                                 </TableCell>
                                 <TableCell>
                                     {checkAuth() === true
-                                    ? <DeleteIcon onClick={() => {props.removeIndex(index)}} />
+                                    ? <DeleteIcon onClick={() => {dispatch(businessRemovedByIndex(index))}} />
                                     : "Please login to delete"}
                                 </TableCell>
                             </TableRow>

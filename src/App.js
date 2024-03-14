@@ -1,15 +1,15 @@
 import './App.css';
 import React from 'react';
-import Navigation from './containers/Navigation'
+import Navigation from './components/Navigation'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import store from './redux/store'
 import Home from './components/Home'
-import Businesses from './containers/Businesses'
+import Businesses from './components/Businesses'
 import Login from './components/Login'
-import Business from './containers/Business';
+import Business from './components/Business';
 import ProtectedRoute from './components/ProtectedRoute';
-import AddBusiness from './containers/AddBusiness'
+import AddBusiness from './components/AddBusiness'
 
 function App() {
   return (
